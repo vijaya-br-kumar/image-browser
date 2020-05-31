@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category List{% endblock %}
+
+{% block body %}
+    <div class="container-fluid p-0">
+        {% include 'admin/includes/navbar.html.twig' %}
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="h3 mb-3 mt-3 font-weight-normal text-center">Category List</h1>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-sm btn-info float-right mt-4" href="{{ path('category_new') }}">
+                    <span class="text-white font-weight-bold">Add Category</span>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-md-2 col-md-8">
+                <table class="table table-striped text-center table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Created At</th>
+                            <th>Updated At</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for category in categories %}
+                        <tr>
+                            <td>{{ category.id }}</td>
+                            <td>{{ category.name }}</td>
+                            <td>{{ category.createdAt ? category.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>{{ category.updatedAt ? category.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>
+                                <a href="{{ path('category_show', {'id': category.id}) }}" class="btn btn-sm btn-success">
+                                    <span class="text-white font-weight-bold">Show</span>
+                                </a>
+                                <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-sm btn-warning">
+                                    <span class="text-white font-weight-bold">Edit</span>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="6">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

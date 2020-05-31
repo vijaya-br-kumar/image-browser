@@ -1,0 +1,24 @@
+.sticky-header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    color: #ffffff;
+    text-align: center;
+    /* padding: 0.875rem 1.25rem; */
+    /* font-weight: bold;
+    font-size: 1.2rem; */
+}
+.category-list{
+    margin-top: 60px;
+}
+.category-list-items{
+    height: 100px;
+    background-color: #d7d7d7;
+    border-color: #d7d7d7;
+    color: #666666;
+    font-weight: bold;
+    font-size: 30px;
+    padding-top: 25px;
+    box-shadow: 0 5px 10px 0 #e2e2e2;
+}

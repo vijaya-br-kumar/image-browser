@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Category{% endblock %}
+
+{% block body %}
+    <div class="container-fluid p-0">
+        {% include 'admin/includes/navbar.html.twig' %}
+        <div class="row">
+            <div class="border offset-md-4 col-md-4 mt-5 p-2">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1 class="h3 mb-3 font-weight-normal text-center">Edit Category</h1>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        {{ include('admin/category/_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-md-4 col-md-4 mt-2 p-0">
+                <a href="{{ path('category_index') }}" class="btn btn-sm btn-info">
+                    <span class="text-white font-weight-bold">Back to list</span>
+                </a>
+                {{ include('admin/category/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

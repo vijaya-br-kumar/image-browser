@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category Details{% endblock %}
+
+{% block body %}
+    <div class="container-fluid p-0">
+        {% include 'admin/includes/navbar.html.twig' %}
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="h3 mb-3 mt-3 font-weight-normal text-center">Category Details</h1>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-sm btn-info float-right mt-4" href="{{ path('category_index') }}">
+                    <span class="text-white font-weight-bold">Back to list</span>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-md-2 col-md-8">
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ category.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ category.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Created_at</th>
+                        <td>{{ category.createdAt ? category.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Updated_at</th>
+                        <td>{{ category.updatedAt ? category.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-md-2 col-md-8">
+                <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-sm btn-warning">
+                    <span class="text-white font-weight-bold">Edit</span>
+                </a>
+                {{ include('admin/category/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

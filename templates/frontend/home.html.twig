@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Image Gallery{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/stylesheets/frontend/index.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 bg-success sticky-header">
+                <h1>Image Gallery</h1>
+            </div>
+        </div>
+        <div class="row category-list">
+        </div>
+        <input id="category-content" type="hidden" value='{% include "frontend/includes/index-content.html.twig" %}'>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        let categoryApiUrl = "{{ path('api_category_list') }}"
+        let categoryPath = "{{ path('home_index') }}" + "category/";
+    </script>
+    <script src="{{ asset('assets/javascripts/frontend/home.js') }}"></script>
+{% endblock %}

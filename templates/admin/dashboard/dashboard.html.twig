@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    <div class="container-fluid p-0">
+        {% include 'admin/includes/navbar.html.twig' %}
+        <div class="jumbotron">
+            <h1 class="display-4">Hello, {% if app.user is defined and app.user is not null %} {{ app.user.firstName }} {% endif %}</h1>
+            <p class="lead">This is a simple admin portal to manage the image category.</p>
+            <hr class="my-4">
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{{ path('category_new') }}" role="button">Add Category</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Image Gallery{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/stylesheets/frontend/gallery.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="d-flex" id="wrapper">
+        {% include 'frontend/includes/sidebar.html.twig' %}
+        {% include 'frontend/includes/image-description.html.twig' %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        let categoryApiUrl = "{{ path('api_category_list') }}";
+        let categoryPath = "{{ path('home_index') }}" + "category/";
+        let imageDetailsApi = "{{ path('api_category_details', {'category': category, 'imageId': imageId}) }}";
+        let currentCategory = "{{ category }}";
+    </script>
+    <script src="{{ asset('assets/javascripts/frontend/image-description.js') }}"></script>
+{% endblock %}
